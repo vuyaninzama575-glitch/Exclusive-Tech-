@@ -1,1 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exclusive Tech | Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #0b1220;
+      color: white;
+    }
+
+    /* HEADER */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px;
+      background: #000;
+      position: sticky;
+      top: 0;
+    }
+
+    .header a {
+      color: white;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(#0b1220, #111a2e);
+    }
+
+    .hero h1 {
+      margin: 0;
+    }
+
+    /* FILTERS */
+    .filters {
+      text-align: center;
+      padding: 10px;
+    }
+
+    .filters button {
+      margin: 5px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      background: #e5e7eb;
+    }
+
+    .active {
+      background: #00d4ff !important;
+      color: black;
+    }
+
+    /* PRODUCTS */
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .card {
+      width: 220px;
+      margin: 10px;
+      background: #111a2e;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .pad {
+      padding: 10px;
+    }
+
+    .price {
+      color: #00d4ff;
+      font-weight: bold;
+    }
+
+    button {
+      width: 100%;
+      padding: 8px;
+      border: none;
+      background: #00d4ff;
+      color: black;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    /* CART */
+    .cart {
+      position: sticky;
+      bottom: 0;
+      background: #000;
+      padding: 10px;
+      border-top: 1px solid #333;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="header">
+  <div><b>Exclusive Tech</b></div>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+  </div>
+</div>
+
+<div class="hero">
+  <h1>Premium Student Tech Store</h1>
+  <p>Cash on Delivery • Campus Delivery • Trusted Store</p>
+</div>
+
+<div class="filters">
+  <button onclick="filter('all')" class="active">All</button>
+  <button onclick="filter('audio')">Audio</button>
+  <button onclick="filter('charging')">Charging</button>
+  <button onclick="filter('power')">Power</button>
+  <button onclick="filter('accessories')">Accessories</button>
+</div>
+
+<div class="grid" id="products"></div>
+
+<div class="cart">
+  <h3>Total: R<span id="total">0</span></h3>
+  <button onclick="checkout()">Checkout on WhatsApp</button>
+</div>
+
+<script>
+
+let phone = "27719931209";
+
+let products = [
+  {name:"Wireless Earbuds", price:180, cat:"audio", img:"https://images.unsplash.com/photo-1585386959984-a41552231693"},
+  {name:"Bass Earbuds Pro", price:250, cat:"audio", img:"https://images.unsplash.com/photo-1590658268037-6bf12165a8df"},
+  {name:"Bluetooth Speaker", price:320, cat:"audio", img:"https://images.unsplash.com/photo-1589003077984-894e
